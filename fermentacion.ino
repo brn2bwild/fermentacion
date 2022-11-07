@@ -5,19 +5,19 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
-#define WIFI_SSID "_ahora-no2.4"
-#define WIFI_PASSWORD "uN2444%&"
+#define WIFI_SSID "tesalia"
+#define WIFI_PASSWORD "admin2022&"
 
 // Raspberri Pi Mosquitto MQTT Broker
-#define MQTT_HOST IPAddress(192, 168, 1, 200)
+#define MQTT_HOST IPAddress(192, 168, 1, 150)
 // For a cloud MQTT broker, type the domain name
 //#define MQTT_HOST "example.com"
 #define MQTT_PORT 1883
 
 // Temperature MQTT Topics
-#define MQTT_PUB_TEMP1 "esp/sensor_1/temperature"
-#define MQTT_PUB_TEMP2 "esp/sensor_2/temperature"
-#define MQTT_PUB_TEMP3 "esp/sensor_3/temperature"
+#define MQTT_PUB_TEMP1 "caja1/sensor1/temperatura"
+#define MQTT_PUB_TEMP2 "caja1/sensor2/temperatura"
+#define MQTT_PUB_TEMP3 "caja1/sensor3/temperatura"
 
 // Data wire is plugged into port D2 on the ESP8266
 #define ONE_WIRE_BUS D2
@@ -42,7 +42,7 @@ WiFiEventHandler wifiDisconnectHandler;
 Ticker wifiReconnectTimer;
 
 unsigned long previousMillis = 0;   // Stores last time temperature was published
-const long interval = 10000;        // Interval at which to publish sensor readings
+const long interval = 5000;        // Interval at which to publish sensor readings
 
 void connectToWifi() {
   Serial.println("Connecting to Wi-Fi...");
